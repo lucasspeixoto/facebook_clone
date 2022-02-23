@@ -1,5 +1,7 @@
+import 'package:facebook/data/data.dart';
 import 'package:facebook/utils/palettes.dart';
 import 'package:facebook/widgets/circle_button.dart';
+import 'package:facebook/widgets/post_area.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 
@@ -41,6 +43,9 @@ class _HomeState extends State<Home> {
                 onPressed: null,
               )
             ],
+          ),
+          SliverToBoxAdapter(
+            child: PostArea(user: UserActual),
           ),
           SliverToBoxAdapter(
             child: Container(
