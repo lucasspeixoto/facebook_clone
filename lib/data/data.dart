@@ -9,14 +9,13 @@ import '../models/models.dart';
 * */
 
 /* Usuário Logado */
-// ignore: non_constant_identifier_names
-User UserActual = User(
-    name: "Jamilton Damasceno",
-    urlImage: "https://source.unsplash.com/EQFtEzJGERg/800x600");
+User userActual = User(
+    name: "Lucas Peixoto",
+    urlImage:
+        "https://lh3.googleusercontent.com/a-/AOh14Ghk0kzPqxBvQlkOUKpXj4NXGuWdZSyPz8YDSgSH=s96-c");
 
 /* Lista de usuários online */
-// ignore: non_constant_identifier_names
-List<User> UsersOnline = [
+List<User> usersOnline = [
   User(
       name: "José Renato de almeida",
       urlImage: "https://source.unsplash.com/UJLAMjEjISo/800x600"),
@@ -43,46 +42,39 @@ List<User> UsersOnline = [
       urlImage: "https://source.unsplash.com/9ChfwZzv4ys/800x600"),
 ];
 
-/* 
-
 /* Lista de estórias */
-List<Estoria> estorias = [
-  Estoria(
-      usuario: usuariosOnline[0],
-      urlImagem: "https://source.unsplash.com/JMWjOup32Fk/800x600",
-      foiVisualizado: true,
+List<Story> stories = [
+  Story(
+    user: usersOnline[0],
+    urlImage: "https://source.unsplash.com/JMWjOup32Fk/800x600",
+    visualized: true,
   ),
-  Estoria(
-      usuario: usuariosOnline[1],
-      urlImagem: "https://source.unsplash.com/no_TCkPUq_s/800x600",
-      foiVisualizado: true,
+  Story(
+    user: usersOnline[1],
+    urlImage: "https://source.unsplash.com/no_TCkPUq_s/800x600",
+    visualized: true,
   ),
-  Estoria(
-      usuario: usuariosOnline[2],
-      urlImagem: "https://source.unsplash.com/6dX5TPPM34M/800x600"
-  ),
-  Estoria(
-      usuario: usuariosOnline[3],
-      urlImagem: "https://source.unsplash.com/PO7CGnoDFUI/800x600"
-  ),
-  Estoria(
-      usuario: usuariosOnline[4],
-      urlImagem: "https://source.unsplash.com/rewyZqUwAqY/800x600"
-  ),
-  Estoria(
-      usuario: usuariosOnline[5],
-      urlImagem: "https://source.unsplash.com/1HpQU1evGK8/800x600"
-  ),
-  Estoria(
-      usuario: usuariosOnline[6],
-      urlImagem: "https://source.unsplash.com/W9z_628BBpc/800x600"
-  ),
-  Estoria(
-      usuario: usuariosOnline[7],
-      urlImagem: "https://source.unsplash.com/DOb-2jd0sbc/800x600"
-  ),
+  Story(
+      user: usersOnline[2],
+      urlImage: "https://source.unsplash.com/6dX5TPPM34M/800x600"),
+  Story(
+      user: usersOnline[3],
+      urlImage: "https://source.unsplash.com/PO7CGnoDFUI/800x600"),
+  Story(
+      user: usersOnline[4],
+      urlImage: "https://source.unsplash.com/rewyZqUwAqY/800x600"),
+  Story(
+      user: usersOnline[5],
+      urlImage: "https://source.unsplash.com/1HpQU1evGK8/800x600"),
+  Story(
+      user: usersOnline[6],
+      urlImage: "https://source.unsplash.com/W9z_628BBpc/800x600"),
+  Story(
+      user: usersOnline[7],
+      urlImage: "https://source.unsplash.com/DOb-2jd0sbc/800x600"),
 ];
 
+/* 
 /* Lista de postagens */
 List<Postagem> postagens = [
   Postagem(
