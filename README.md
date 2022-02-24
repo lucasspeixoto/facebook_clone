@@ -6,7 +6,7 @@
 
 ## 💻 Projeto
 
-Projeto de um clone do Facebook nas versões web e mobile para praticar a construção de widgets com o flutter;
+Projeto de um clone do Facebook nas versões web e mobile para praticar a construção de widgets com o flutter.
 
 ## ✨ Tecnologias
 
