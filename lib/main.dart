@@ -1,4 +1,5 @@
 import 'package:facebook/screens/home.dart';
+import 'package:facebook/screens/main.dart';
 import 'package:facebook/utils/palettes.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ void main() {
       theme: ThemeData(
         scaffoldBackgroundColor: PalettesColors.scaffold,
       ),
-      home: const Home(),
+      home: const Main(),
     ),
   );
 }
