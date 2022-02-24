@@ -1,7 +1,9 @@
 import 'package:facebook/data/data.dart';
+import 'package:facebook/models/models.dart';
 import 'package:facebook/utils/palettes.dart';
 import 'package:facebook/widgets/circle_button.dart';
 import 'package:facebook/widgets/post_area.dart';
+import 'package:facebook/widgets/post_card.dart';
 import 'package:facebook/widgets/story.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
@@ -51,15 +53,20 @@ class _HomeState extends State<Home> {
           SliverPadding(
             padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
             sliver: SliverToBoxAdapter(
-              child: StoryArea(user: userActual, stories: stories),
+              child: StoryArea(
+                user: userActual,
+                stories: stories,
+              ),
             ),
           ),
-          SliverToBoxAdapter(
-            child: Container(
-              color: Colors.green,
-              height: 2000,
-            ),
-          ),
+          SliverList(
+              delegate: SliverChildBuilderDelegate(
+            (context, index) {
+              Post post = posts[index];
+              return PostCard(post: post);
+            },
+            childCount: posts.length,
+          ))
         ],
       ),
     );

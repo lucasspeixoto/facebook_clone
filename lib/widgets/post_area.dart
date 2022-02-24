@@ -39,7 +39,7 @@ class PostArea extends StatelessWidget {
             height: 10,
             thickness: 1.0,
           ),
-          Container(
+          SizedBox(
             height: 40,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

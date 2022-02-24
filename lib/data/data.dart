@@ -17,29 +17,37 @@ User userActual = User(
 /* Lista de usuários online */
 List<User> usersOnline = [
   User(
-      name: "José Renato de almeida",
-      urlImage: "https://source.unsplash.com/UJLAMjEjISo/800x600"),
+    name: "Liana Fernandes",
+    urlImage: "https://source.unsplash.com/0wRXAXqIp58/800x600",
+  ),
   User(
-      name: "Maria Almeida",
-      urlImage: "https://source.unsplash.com/0wRXAXqIp58/800x600"),
+    name: "José Renato de almeida",
+    urlImage: "https://source.unsplash.com/UJLAMjEjISo/800x600",
+  ),
   User(
-      name: "Fernando Lima de albuquerque filho",
-      urlImage: "https://source.unsplash.com/59HOrlAKTOU/800x600"),
+    name: "Fernando Lima de albuquerque filho",
+    urlImage: "https://source.unsplash.com/59HOrlAKTOU/800x600",
+  ),
   User(
-      name: "Marcela Faria",
-      urlImage: "https://source.unsplash.com/GXzHGgzraHc/800x600"),
+    name: "Marcela Faria",
+    urlImage: "https://source.unsplash.com/GXzHGgzraHc/800x600",
+  ),
   User(
-      name: "Carlos Eduardo",
-      urlImage: "https://source.unsplash.com/y8yimL21z8s/800x600"),
+    name: "Carlos Eduardo",
+    urlImage: "https://source.unsplash.com/y8yimL21z8s/800x600",
+  ),
   User(
-      name: "Joana Santos",
-      urlImage: "https://source.unsplash.com/PXWiHU7pbeg/800x600"),
+    name: "Joana Santos",
+    urlImage: "https://source.unsplash.com/PXWiHU7pbeg/800x600",
+  ),
   User(
-      name: "Rodrigo Caio",
-      urlImage: "https://source.unsplash.com/MS0RHQ1enek/800x600"),
+    name: "Rodrigo Caio",
+    urlImage: "https://source.unsplash.com/MS0RHQ1enek/800x600",
+  ),
   User(
-      name: "Pedro do Carmo",
-      urlImage: "https://source.unsplash.com/9ChfwZzv4ys/800x600"),
+    name: "Pedro do Carmo",
+    urlImage: "https://source.unsplash.com/9ChfwZzv4ys/800x600",
+  ),
 ];
 
 /* Lista de estórias */
@@ -74,85 +82,83 @@ List<Story> stories = [
       urlImage: "https://source.unsplash.com/DOb-2jd0sbc/800x600"),
 ];
 
-/* 
 /* Lista de postagens */
-List<Postagem> postagens = [
-  Postagem(
-      usuario: usuariosOnline[0],
-      descricao: "Passeio muito legal no final de semana",
-      tempoAtras: "20m",
-      urlImagem: "https://source.unsplash.com/DOb-2jd0sbc/800x600",
-      curtidas: 30,
-      comentarios: 3,
-      compartilhamentos: 5
+List<Post> posts = [
+  Post(
+    user: usersOnline[0],
+    description: "Passeio muito legal no final de semana",
+    time: "20m",
+    urlImage: "https://source.unsplash.com/DOb-2jd0sbc/800x600",
+    likes: 30,
+    comments: 3,
+    shares: 5,
   ),
-  Postagem(
-      usuario: usuariosOnline[1],
-      descricao: "Quero compartilhar com você algo que aconteceu...",
-      tempoAtras: "40m",
-      urlImagem: "https://source.unsplash.com/G0H58Z5aPog/800x600",
-      curtidas: 30,
-      comentarios: 3,
-      compartilhamentos: 5
+  Post(
+    user: usersOnline[1],
+    description: "Quero compartilhar com você algo que aconteceu...",
+    time: "40m",
+    urlImage: "https://source.unsplash.com/G0H58Z5aPog/800x600",
+    likes: 30,
+    comments: 3,
+    shares: 5,
   ),
-  Postagem(
-      usuario: usuariosOnline[2],
-      descricao: "Não recomendo esse lugar, não fomos bem atendidos",
-      tempoAtras: "55m",
-      urlImagem: "https://source.unsplash.com/1a_u4n02YNo/800x600",
-      curtidas: 30,
-      comentarios: 3,
-      compartilhamentos: 5
+  Post(
+    user: usersOnline[2],
+    description: "Não recomendo esse lugar, não fomos bem atendidos",
+    time: "55m",
+    urlImage: "https://source.unsplash.com/1a_u4n02YNo/800x600",
+    likes: 30,
+    comments: 3,
+    shares: 5,
   ),
-  Postagem(
-      usuario: usuariosOnline[3],
-      descricao: "Não importa o que você sabe, mas o que faz com o que você sabe!",
-      tempoAtras: "1h",
-      urlImagem: "https://source.unsplash.com/sfL_QOnmy00/800x600",
-      curtidas: 30,
-      comentarios: 3,
-      compartilhamentos: 5
+  Post(
+    user: usersOnline[3],
+    description:
+        "Não importa o que você sabe, mas o que faz com o que você sabe!",
+    time: "1h",
+    urlImage: "https://source.unsplash.com/sfL_QOnmy00/800x600",
+    likes: 30,
+    comments: 3,
+    shares: 5,
   ),
-  Postagem(
-      usuario: usuariosOnline[4],
-      descricao: "Preciso de indicações de eletricista, meu chuveiro pifou :(",
-      tempoAtras: "2h",
-      urlImagem: "https://source.unsplash.com/_tWMmC9CQXQ/800x600",
-      curtidas: 30,
-      comentarios: 3,
-      compartilhamentos: 5
+  Post(
+    user: usersOnline[4],
+    description: "Preciso de indicações de eletricista, meu chuveiro pifou :(",
+    time: "2h",
+    urlImage: "https://source.unsplash.com/_tWMmC9CQXQ/800x600",
+    likes: 30,
+    comments: 3,
+    shares: 5,
   ),
-  Postagem(
-      usuario: usuariosOnline[5],
-      descricao: "Que chuva maravilhosa!",
-      tempoAtras: "2d",
-      urlImagem: "https://source.unsplash.com/a4wUKaaMGWQ/800x600",
-      curtidas: 30,
-      comentarios: 3,
-      compartilhamentos: 5
+  Post(
+    user: usersOnline[5],
+    description: "Que chuva maravilhosa!",
+    time: "2d",
+    urlImage: "https://source.unsplash.com/a4wUKaaMGWQ/800x600",
+    likes: 30,
+    comments: 3,
+    shares: 5,
   ),
-  Postagem(
-      usuario: usuariosOnline[6],
-      descricao: "Um dia mais que especial, nos divertimos bastante ;)",
-      tempoAtras: "3d",
-      urlImagem: "https://source.unsplash.com/YS1OOmHAFD0/800x600",
-      curtidas: 100,
-      comentarios: 30,
-      compartilhamentos: 3
+  Post(
+    user: usersOnline[6],
+    description: "Um dia mais que especial, nos divertimos bastante ;)",
+    time: "3d",
+    urlImage: "https://source.unsplash.com/YS1OOmHAFD0/800x600",
+    likes: 100,
+    comments: 30,
+    shares: 3,
   ),
-  Postagem(
-      usuario: usuariosOnline[7],
-      descricao: "VOCÊ É DO TAMANHO DOS SEUS SONHOS! Lute, persista, "
-          "insista, corra atrás, passe algumas noites sem dormir direito, "
-          "mas nunca desista de seus sonhos, acredite que é capaz, se olhe "
-          "no espelho e diga pra você: VOCÊ TEM POTENCIAL! "
-          "Ninguém além de você mesmo pode torná-lo real.",
-      tempoAtras: "3d",
-      urlImagem: "https://source.unsplash.com/Ng2Hg1YMMuU/800x600",
-      curtidas: 230,
-      comentarios: 25,
-      compartilhamentos: 3
+  Post(
+    user: usersOnline[7],
+    description: "VOCÊ É DO TAMANHO DOS SEUS SONHOS! Lute, persista, "
+        "insista, corra atrás, passe algumas noites sem dormir direito, "
+        "mas nunca desista de seus sonhos, acredite que é capaz, se olhe "
+        "no espelho e diga pra você: VOCÊ TEM POTENCIAL! "
+        "Ninguém além de você mesmo pode torná-lo real.",
+    time: "3d",
+    urlImage: "https://source.unsplash.com/Ng2Hg1YMMuU/800x600",
+    likes: 230,
+    comments: 25,
+    shares: 3,
   ),
 ];
-
-*/
