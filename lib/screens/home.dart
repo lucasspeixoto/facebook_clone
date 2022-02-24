@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
             floating: true,
             centerTitle: false,
             title: Text(
-              'Facebook',
+              'facebook',
               style: TextStyle(
                 color: PalettesColors.blueFacebook,
                 fontWeight: FontWeight.bold,

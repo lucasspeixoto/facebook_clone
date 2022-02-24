@@ -1,5 +1,8 @@
+import 'package:facebook/data/data.dart';
 import 'package:facebook/screens/home.dart';
+import 'package:facebook/utils/responsive.dart';
 import 'package:facebook/widgets/navigation_tabs.dart';
+import 'package:facebook/widgets/navigation_tabs_desltop.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 
@@ -33,24 +36,47 @@ class _MainState extends State<Main> {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDesktop = Responsive.isDesktop(context);
+    Size size = MediaQuery.of(context).size;
+
     return DefaultTabController(
       length: _icons.length,
       child: Scaffold(
+        appBar: isDesktop
+            ? PreferredSize(
+                preferredSize: Size(size.width, 65),
+                child: NavigationTabsDesktop(
+                  user: userActual,
+                  icons: _icons,
+                  selectedTabIndex: _selectedTabIndex,
+                  onTap: (index) {
+                    setState(
+                      () {
+                        _selectedTabIndex = index;
+                      },
+                    );
+                  },
+                ),
+              )
+            : null,
         body: TabBarView(
           physics:
               const NeverScrollableScrollPhysics(), //Impossibilita navegar arrastando para os lados
           children: _screens,
         ),
-        bottomNavigationBar: NavigationTabs(
-            icons: _icons,
-            selectedTabIndex: _selectedTabIndex,
-            onTap: (index) {
-              setState(
-                () {
-                  _selectedTabIndex = index;
+        bottomNavigationBar: isDesktop
+            ? null
+            : NavigationTabs(
+                icons: _icons,
+                selectedTabIndex: _selectedTabIndex,
+                onTap: (index) {
+                  setState(
+                    () {
+                      _selectedTabIndex = index;
+                    },
+                  );
                 },
-              );
-            }),
+              ),
       ),
     );
   }
