@@ -3,6 +3,7 @@ import 'package:facebook/models/models.dart';
 import 'package:facebook/utils/palettes.dart';
 import 'package:facebook/utils/responsive.dart';
 import 'package:facebook/widgets/circle_button.dart';
+import 'package:facebook/widgets/contacts_list.dart';
 import 'package:facebook/widgets/post_area.dart';
 import 'package:facebook/widgets/post_card.dart';
 import 'package:facebook/widgets/story.dart';
@@ -67,27 +68,47 @@ class HomeDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        SliverPadding(
-          padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
-          sliver: SliverToBoxAdapter(
-            child: StoryArea(
-              user: userActual,
-              stories: stories,
-            ),
+    return Row(
+      children: [
+        Flexible(
+          flex: 1,
+          child: Container(color: Colors.red),
+        ),
+        const Spacer(), //Espaçamento entre Flexibes
+        Flexible(
+          flex: 4,
+          child: CustomScrollView(
+            slivers: [
+              SliverPadding(
+                padding: const EdgeInsets.fromLTRB(0, 50, 0, 5),
+                sliver: SliverToBoxAdapter(
+                  child: StoryArea(
+                    user: userActual,
+                    stories: stories,
+                  ),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: PostArea(user: userActual),
+              ),
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) {
+                    Post post = posts[index];
+                    return PostCard(post: post);
+                  },
+                  childCount: posts.length,
+                ),
+              ),
+            ],
           ),
         ),
-        SliverToBoxAdapter(
-          child: PostArea(user: userActual),
-        ),
-        SliverList(
-          delegate: SliverChildBuilderDelegate(
-            (context, index) {
-              Post post = posts[index];
-              return PostCard(post: post);
-            },
-            childCount: posts.length,
+        const Spacer(),
+        Flexible(
+          flex: 1,
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: ContactsList(users: usersOnline),
           ),
         ),
       ],
