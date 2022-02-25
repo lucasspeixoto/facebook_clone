@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:facebook/models/models.dart';
 import 'package:facebook/utils/palettes.dart';
+import 'package:facebook/utils/responsive.dart';
 import 'package:facebook/widgets/profile_image.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
@@ -14,33 +15,47 @@ class PostCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDesktop = Responsive.isDesktop(context);
     return Container(
-        color: Colors.white,
-        margin: const EdgeInsets.symmetric(vertical: 8),
-        padding: const EdgeInsets.symmetric(vertical: 8),
-        child: Column(
-          children: [
-            //Cabeçalho
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Column(
-                children: [PostHeader(post: post), Text(post.description)],
+      padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
+      color: isDesktop ? Colors.transparent : Colors.white,
+      child: Card(
+        margin:
+            EdgeInsets.symmetric(vertical: 8, horizontal: isDesktop ? 5 : 0),
+        elevation: isDesktop ? 1 : 0,
+        shape: isDesktop
+            ? RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
+            : null,
+        child: Container(
+          color: Colors.white,
+          margin: const EdgeInsets.symmetric(vertical: 8),
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: Column(
+            children: [
+              //Cabeçalho
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Column(
+                  children: [PostHeader(post: post), Text(post.description)],
+                ),
               ),
-            ),
 
-            //Imagem do post
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              child: CachedNetworkImage(imageUrl: post.urlImage),
-            ),
+              //Imagem do post
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: CachedNetworkImage(imageUrl: post.urlImage),
+              ),
 
-            //Área de estatisticas
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Statistics(post: post),
-            ),
-          ],
-        ));
+              //Área de estatisticas
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Statistics(post: post),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
 

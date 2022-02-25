@@ -4,6 +4,7 @@ import 'package:facebook/utils/palettes.dart';
 import 'package:facebook/utils/responsive.dart';
 import 'package:facebook/widgets/circle_button.dart';
 import 'package:facebook/widgets/contacts_list.dart';
+import 'package:facebook/widgets/options_list.dart';
 import 'package:facebook/widgets/post_area.dart';
 import 'package:facebook/widgets/post_card.dart';
 import 'package:facebook/widgets/story.dart';
@@ -18,13 +19,24 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final TrackingScrollController _scrollController = TrackingScrollController();
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Responsive(
-        mobile: HomeMobile(),
-        /* tablet: HomeTablet(), */
-        desktop: HomeDesktop(),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        body: Responsive(
+          mobile: HomeMobile(scrollController: _scrollController),
+          /* tablet: HomeTablet(), */
+          desktop: HomeDesktop(scrollController: _scrollController),
+        ),
       ),
     );
   }
@@ -64,7 +76,10 @@ class HomeTablet extends StatelessWidget {
 }
 
 class HomeDesktop extends StatelessWidget {
-  const HomeDesktop({Key? key}) : super(key: key);
+  final TrackingScrollController scrollController;
+
+  const HomeDesktop({Key? key, required this.scrollController})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -72,12 +87,16 @@ class HomeDesktop extends StatelessWidget {
       children: [
         Flexible(
           flex: 1,
-          child: Container(color: Colors.red),
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: OptionsList(user: userActual),
+          ),
         ),
         const Spacer(), //Espaçamento entre Flexibes
         Flexible(
           flex: 4,
           child: CustomScrollView(
+            controller: scrollController,
             slivers: [
               SliverPadding(
                 padding: const EdgeInsets.fromLTRB(0, 50, 0, 5),
@@ -117,11 +136,15 @@ class HomeDesktop extends StatelessWidget {
 }
 
 class HomeMobile extends StatelessWidget {
-  const HomeMobile({Key? key}) : super(key: key);
+  final TrackingScrollController scrollController;
+
+  const HomeMobile({Key? key, required this.scrollController})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
+      controller: scrollController,
       slivers: [
         const SliverAppBar(
           backgroundColor: Colors.white,
